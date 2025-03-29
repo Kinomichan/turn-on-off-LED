@@ -1,6 +1,6 @@
 # IoT Hackathon 2025/03
 
-```Usage:
+```Usage
 change LED status
 sudo turnOnOffLed.py
 
