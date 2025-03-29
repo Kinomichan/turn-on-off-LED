@@ -15,13 +15,8 @@ def main():
         pixelPin, numPixels, brightness=pixelBrightness, auto_write=False, pixel_order=colorOrder
     )
 
-    # Initializing pixel Color List
-    pixelColorList = []
-    for i in range(numPixels):
-        # hue: 0.00 ~ pixelRed (starting from green to red)
-        hue = colorRed * (i / numPixels)
-        r, g, b = colorsys.hsv_to_rgb(hue, 1.0, 1.0)
-        pixelColorList.append([int(r*255), int(g*255), int(b*255)])
+    # Initializing pixel Color List (Green to Red)
+    pixelColorList = initColorList(colorRed, numPixels)
 
     while True:
         for i in range(1,11):
@@ -29,6 +24,18 @@ def main():
             time.sleep(0.1)
 
         turnOffLed(pixels)
+
+
+def initColorList(colorRed, numPixels):
+    pixelColorList = []
+
+    for i in range(numPixels):
+        # hue: 0.00 ~ pixelRed (starting from green to red)
+        hue = colorRed * (i / numPixels)
+        r, g, b = colorsys.hsv_to_rgb(hue, 1.0, 1.0)
+        pixelColorList.append([int(r*255), int(g*255), int(b*255)])
+
+    return pixelColorList
 
 
 def turnOnLed(pixels, pixelColorList, number):

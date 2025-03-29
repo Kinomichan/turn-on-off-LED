@@ -14,7 +14,7 @@ def main():
     else:
         ledStatus = "none"
 
-    scriptName = "/opt/iot-python/soundBar.py"
+    scriptName = "/opt/iot-python/soundLedBar.py"
 
     pixelPin = board.D18
     numPixels = 10
